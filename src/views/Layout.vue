@@ -1,8 +1,9 @@
 <script setup>
-import NavItem from '../components/NavItem.vue';
+import NavItem from "../components/NavItem.vue";
+import { HomeIcon, NewspaperIcon, PhotoIcon } from "@heroicons/vue/24/outline";
 
 const navItems = [
-  { href: "#", label: "Home", children: [], icon: null },
+  { href: "#", label: "Home", children: [], icon: HomeIcon },
   {
     href: "#",
     label: "Post",
@@ -11,7 +12,7 @@ const navItems = [
       { href: "#", label: "Add new", children: [], icon: null },
       { href: "#", label: "Categories", children: [], icon: null },
     ],
-    icon: null,
+    icon: NewspaperIcon,
   },
   {
     href: "#",
@@ -27,7 +28,7 @@ const navItems = [
         icon: null,
       },
     ],
-    icon: null,
+    icon: PhotoIcon,
   },
 ];
 </script>
@@ -47,9 +48,7 @@ const navItems = [
       </div>
       <nav>
         <NavItem :item="item" v-for="item in navItems" :key="item.label">
-
         </NavItem>
-        
       </nav>
     </div>
     <main class="p-4">content</main>
