@@ -1,4 +1,6 @@
 <script setup>
+import NavItem from '../components/NavItem.vue';
+
 const navItems = [
   { href: "#", label: "Home", children: [], icon: null },
   {
@@ -44,15 +46,9 @@ const navItems = [
         </a>
       </div>
       <nav>
-        <template v-for="item in navItems" :key="item.label">
+        <NavItem :item="item" v-for="item in navItems" :key="item.label">
 
-                <a class="flex" :href="item.href">{{item.label}}</a>
-
-                <div v-if="item.children.length">
-                    <a class="flex ml-2" v-for="child in item.children" :key="child.label" :href="child.href">{{child.label}}</a>
-                </div>
-
-        </template>
+        </NavItem>
         
       </nav>
     </div>
