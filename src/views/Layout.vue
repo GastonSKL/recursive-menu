@@ -3,32 +3,47 @@ import NavItem from "../components/NavItem.vue";
 import { HomeIcon, NewspaperIcon, PhotoIcon } from "@heroicons/vue/24/outline";
 
 const navItems = [
-  { href: "#", label: "Home", children: [], icon: HomeIcon },
+  { href: "#", label: "Home", children: [], icon: HomeIcon, active: true },
   {
     href: "#",
     label: "Post",
     children: [
-      { href: "#", label: "All post", children: [], icon: null },
-      { href: "#", label: "Add new", children: [], icon: null },
-      { href: "#", label: "Categories", children: [], icon: null },
+      { href: "#", label: "All post", children: [], icon: null, active: false },
+      { href: "#", label: "Add new", children: [], icon: null, active: false },
+      {
+        href: "#",
+        label: "Categories",
+        children: [],
+        icon: null,
+        active: false,
+      },
     ],
     icon: NewspaperIcon,
+    active: false,
   },
   {
     href: "#",
     label: "Media",
     children: [
-      { href: "#", label: "Library", children: [], icon: null },
+      { href: "#", label: "Library", children: [], icon: null, active: false },
       {
         href: "#",
         label: "Add new",
         children: [
-          { href: "#", label: "Third level", children: [], icon: null },
+          {
+            href: "#",
+            label: "Third level",
+            children: [],
+            icon: null,
+            active: false,
+          },
         ],
         icon: null,
+        active: false,
       },
     ],
     icon: PhotoIcon,
+    active: false,
   },
 ];
 </script>
@@ -46,7 +61,7 @@ const navItems = [
           />
         </a>
       </div>
-      <nav>
+      <nav class="mt-2 px-2">
         <NavItem :item="item" v-for="item in navItems" :key="item.label">
         </NavItem>
       </nav>
