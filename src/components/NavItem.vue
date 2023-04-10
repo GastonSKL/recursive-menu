@@ -1,17 +1,24 @@
 <script setup>
+import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
+
 const props = defineProps({
   item: Object,
 });
 </script>
 
 <template>
-  <a class="flex" :href="item.href">{{ item.label }}</a>
+  <a v-if="!item.children.length" class="flex" :href="item.href">{{ item.label }}</a>
 
-  <div class="ml-2" v-if="item.children.length">
-    <NavItem
-      class="flex"
-      v-for="child in item.children"
-      :item="child"
-      :key="child.label"/>
-  </div>
+  <Disclosure v-else>
+    <DisclosureButton class="flex">
+      {{item.label}}
+    </DisclosureButton>
+    <DisclosurePanel class="ml-4">
+        <NavItem
+        v-for="child in item.children"
+        :item="child"
+        :key="child.label"
+      />
+    </DisclosurePanel>
+  </Disclosure>
 </template>
